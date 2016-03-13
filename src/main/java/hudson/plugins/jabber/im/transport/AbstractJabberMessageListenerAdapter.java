@@ -3,8 +3,8 @@ package hudson.plugins.jabber.im.transport;
 import hudson.plugins.im.IMMessage;
 import hudson.plugins.im.IMMessageListener;
 
+import org.jivesoftware.smack.packet.ExtensionElement;
 import org.jivesoftware.smack.packet.Message;
-import org.jivesoftware.smack.packet.PacketExtension;
 import org.jivesoftware.smackx.delay.packet.DelayInformation;
 
 class AbstractJabberMessageListenerAdapter {
@@ -18,10 +18,10 @@ class AbstractJabberMessageListenerAdapter {
         this.connection = connection;
     }
 
-    protected void processMessage(Message msg) {
+    public void processMessage(Message msg) {
         // Don't react to old messages.
     	// Especially useful for chat rooms where all old messages are replayed, when you connect to them
-    	for (PacketExtension pe : msg.getExtensions()) {
+    	for (ExtensionElement pe : msg.getExtensions()) {
             if (pe instanceof DelayInformation) {
                 return; // simply bail out here, it's an old message
             }

@@ -35,7 +35,7 @@ import jenkins.model.Jenkins;
 import net.sf.json.JSONObject;
 
 import org.apache.commons.lang.StringUtils;
-import org.jivesoftware.smack.Roster.SubscriptionMode;
+import org.jivesoftware.smack.roster.Roster.SubscriptionMode;
 import org.jivesoftware.smack.proxy.ProxyInfo.ProxyType;
 import org.kohsuke.stapler.QueryParameter;
 import org.kohsuke.stapler.StaplerRequest;
